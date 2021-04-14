@@ -28,4 +28,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('/palabras/{letra}', 'PalabraController@palabrab_aleatoria');
+Route::get('/palabras={letra}', 'PalabraController@palabrab_aleatoria');
+Route::get('/scrap={palabra}','ScrapController@prueba');
