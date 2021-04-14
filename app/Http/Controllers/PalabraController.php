@@ -20,6 +20,15 @@ class PalabraController extends Controller
 
     public function palabrab_aleatoria($letra){
 
+  
+        if ($letra=='coloquial'){
+        $data = file_get_contents("../palabras/".$letra.".json");
+        $palabras = json_decode($data, true);
+
+        $rand = random_int(0, count($palabras));
+        echo  $palabras[$rand]["palabra"];
+
+        }else{
         
         $data = file_get_contents("../palabras/".$letra.".json");
         $palabras = json_decode($data, true);
@@ -27,6 +36,7 @@ class PalabraController extends Controller
         $rand = random_int(0, count($palabras));
         echo "https://dle.rae.es/". $palabras[$rand]["palabra"];
         
+        }
     return view('index');
     }
 
