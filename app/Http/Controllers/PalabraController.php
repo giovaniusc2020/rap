@@ -26,7 +26,8 @@ class PalabraController extends Controller
         $palabras = json_decode($data, true);
 
         $rand = random_int(0, count($palabras));
-        echo  $palabras[$rand]["palabra"];
+        $array = Array("palabra"=>$palabras[$rand]["palabra"]);
+        echo json_encode($array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 
         }else{
         
@@ -34,7 +35,8 @@ class PalabraController extends Controller
         $palabras = json_decode($data, true);
 
         $rand = random_int(0, count($palabras));
-        echo "https://dle.rae.es/". $palabras[$rand]["palabra"];
+        $array = Array("url"=>"https://dle.rae.es/". $palabras[$rand]["palabra"]);
+        echo json_encode($array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
         
         }
     return view('index');

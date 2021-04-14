@@ -12,6 +12,8 @@ class ScrapController extends Controller
     public function prueba ($palabra){
         $html = file_get_html("https://dle.rae.es/".$palabra);
 
-        echo $html->find('meta[name=description]',0)->content;
+        $aux = $html->find('meta[name=description]',0)->content;
+        $array = Array("definicion"=>$aux);
+        echo json_encode($array, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
     }
 }
